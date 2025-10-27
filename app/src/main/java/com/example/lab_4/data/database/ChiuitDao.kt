@@ -11,8 +11,11 @@ interface ChiuitDao {
 
     @Query("SELECT * FROM chiuits")
     fun getAll(): List<ChiuitEntity>
-    // TODO 3: Define the insert operation.
+    
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(chiuit: ChiuitEntity)
 
-    // TODO 6: Define the delete operation.
+    @androidx.room.Delete
+    fun delete(chiuit: ChiuitEntity)
 
 }
